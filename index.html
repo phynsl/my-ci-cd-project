@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks & Habits</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: black; /* Черный фон для всего сайта */
+        }
+        .hero {
+            background: url('https://wallpapers.com/images/hd/light-black-background-2560-x-1600-y5zu64vto6ysl4as.jpg') center/cover no-repeat;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5rem;
+        }
+        .cta {
+            margin-top: 20px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+        .cta a:hover {
+            background-color: #333;
+        }
+        .features {
+            background: url('https://img.lovepik.com/background/20211022/large/lovepik-extreme-black-background-image_401901894.jpg') center/cover no-repeat;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .features div {
+            max-width: 300px;
+        }
+        .features h2 {
+            font-size: 1.2rem;
+        }
+        .form-section {
+            background-color: #2c3e50;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: black; /* Черный фон для кнопок */
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #333; /* Темно-серый цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>tasks & habits</h1>
+        <p>turn your tasks into habits</p>
+        <div class="cta">Добро пожаловать! <br><a href="#" class="cta">Зарегистрироваться</a></div>
+    </div>
+
+    <div class="features">
+        <div>
+            <h2>Мотивируйте себя<br>на достижение ваших целей</h2>
+        </div>
+        <div>
+            <h2>Отслеживайте свои<br>привычки и цели</h2>
+        </div>
+        <div>
+            <h2>Составляйте расписание<br>и свой график</h2>
+        </div>
+    </div>
+
+    <!-- Добавить задание -->
+    <div class="form-section">
+        <h2>Добавить задание</h2>
+        <div class="form-group">
+            <label for="task">Название задания:</label>
+            <input type="text" id="task" name="task" placeholder="Введите задание">
+        </div>
+        <button onclick="addTask()">Добавить задание</button>
+    </div>
+
+    <!-- Добавить расписание -->
+    <div class="form-section">
+        <h2>Добавить расписание</h2>
+        <div class="form-group">
+            <label for="schedule">Дата и время:</label>
+            <input type="date" id="schedule" name="schedule">
+        </div>
+        <button onclick="addSchedule()">Добавить расписание</button>
+    </div>
+
+    <!-- Составить график -->
+    <div class="form-section">
+        <h2>Составить график</h2>
+        <div class="form-group">
+            <label for="schedule-details">Описание графика:</label>
+            <textarea id="schedule-details" name="schedule-details" rows="4" placeholder="Введите описание графика"></textarea>
+        </div>
+        <button onclick="createSchedule()">Создать график</button>
+    </div>
+
+    <!-- Добавить событие -->
+    <div class="form-section">
+        <h2>Добавить событие</h2>
+        <div class="form-group">
+            <label for="event-name">Название события:</label>
+            <input type="text" id="event-name" name="event-name" placeholder="Введите название события">
+        </div>
+        <div class="form-group">
+            <label for="event-date">Дата события:</label>
+            <input type="date" id="event-date" name="event-date">
+        </div>
+        <button onclick="addEvent()">Добавить событие</button>
+    </div>
+
+    <!-- Компонент Common Ninja и скрипт -->
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-50e1a114-00f5-4b77-9dc5-75c98aa2adf4"></div>
+
+    <script>
+        function addTask() {
+            const task = document.getElementById('task').value;
+            alert("Задание '" + task + "' добавлено!");
+        }
+
+        function addSchedule() {
+            const schedule = document.getElementById('schedule').value;
+            alert("Расписание добавлено на: " + schedule);
+        }
+
+        function createSchedule() {
+            const scheduleDetails = document.getElementById('schedule-details').value;
+            alert("График создан: " + scheduleDetails);
+        }
+
+        function addEvent() {
+            const eventName = document.getElementById('event-name').value;
+            const eventDate = document.getElementById('event-date').value;
+            alert("Событие '" + eventName + "' добавлено на " + eventDate);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminders</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: #1e1e1e;
+        }
+        .header {
+            background: url('https://img.lovepik.com/bg/20231225/Captivating-Black-Abstract-Wave-Animation-Background-Artwork_2674413_wh860.jpg!/fw/860') center/cover no-repeat;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+        }
+        .header h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+        .header p {
+            font-size: 1.5rem;
+        }
+        .cta {
+            margin-top: 20px;
+        }
+        .cta a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+        .cta a:hover {
+            background-color: #333;
+        }
+        .form-section {
+            background-color: #2c3e50;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .form-section input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-section button {
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .form-section button:hover {
+            background-color: #333;
+        }
+        .reminders {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .reminder-card {
+            background-color: #34495e;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+        .reminder-card h3 {
+            font-size: 1.2rem;
+        }
+        .reminder-card p {
+            font-size: 1rem;
+            color: #BDC3C7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Reminders</h1>
+        <p>Never forget your daily habits!</p>
+        <div class="cta">
+            <a href="index.html">Back to Tasks</a>
+        </div>
+    </div>
+
+    <!-- Create Reminder Section -->
+    <div class="form-section">
+        <h2>Create a Reminder</h2>
+        <input type="text" id="reminderInput" placeholder="Enter your reminder here">
+        <button onclick="createReminder()">Create Reminder</button>
+    </div>
+
+    <!-- Reminder Cards Section -->
+    <div class="reminders">
+        <div class="reminder-card">
+            <h3>Eat Vegetables</h3>
+            <p>Reminder to eat vegetables daily for a healthy diet.</p>
+        </div>
+        <div class="reminder-card">
+            <h3>Go to Gym</h3>
+            <p>Reminder to hit the gym for a daily workout.</p>
+        </div>
+        <div class="reminder-card">
+            <h3>Wake up at 8:00</h3>
+            <p>Reminder to start the day early for maximum productivity.</p>
+        </div>
+        <div class="reminder-card">
+            <h3>Make Code</h3>
+            <p>Reminder to write code and improve your programming skills.</p>
+        </div>
+    </div>
+
+    <script>
+        function createReminder() {
+            const reminder = document.getElementById('reminderInput').value;
+            if (reminder) {
+                alert("Напоминание '" + reminder + "' создано!");
+            } else {
+                alert("Пожалуйста, введите напоминание!");
+            }
+        }
+    </script>
+
+</body>
+</html>
