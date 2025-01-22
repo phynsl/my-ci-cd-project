@@ -1,0 +1,36 @@
+name: docker deleted host testing
+
+on: 
+  push:
+     branches:
+     - main
+  pull_request:
+     branches:
+     - main
+     
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Проверить исходный код
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Установить Docker
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+      # Запуск 
+      - name: launch docker on deleted host
+        run: |
+          docker run --rm -d -v ${{ github.workspace }}:/app -p 5000:5000 phynsl/repeat-after-others:latest
+
+      - name: Check Docker Container Logs
+        run: |
+          sleep 5 # Даем время контейнеру на запуск
+          docker ps -a
+          docker logs $(docker ps -q --filter ancestor=phynsl/repeat-after-others:latest)
+          
+      - name: Test HTTP Response
+        run: |
+          curl -s http://localhost:5000 | grep "Hello World!"
