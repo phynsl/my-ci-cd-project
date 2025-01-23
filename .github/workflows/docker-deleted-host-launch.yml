@@ -29,9 +29,12 @@ jobs:
       - name: Check Docker Container Logs
         run: docker ps -a
           
-      - name: fetch idgaf
+      - name: fetch
         run: |
-          docker logs $(docker ps -q --filter ancestor=phynsl/repeat-after-others:latest)
+          docker ps -q --filter ancestor=phynsl/repeat-after-others:latest | while read container_id; do
+              echo "Logs for container $container_id:"
+              docker logs $container_id
+          done
           
       - name: Test HTTP Response
         run: |
