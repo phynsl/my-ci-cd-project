@@ -23,7 +23,7 @@ jobs:
       # Запуск 
       - name: launch docker on deleted host
         run: |
-          docker run -d -v ${{ github.workspace }}:/app -p 5000:5000 phynsl/repeat-after-others:latest
+          docker run -d -v ${{ github.workspace }}:/app -p 5000:5000 phynsl/rebuild:v1
           sleep 5 
 
       - name: Check Docker Container Logs
@@ -31,7 +31,7 @@ jobs:
           
       - name: fetch
         run: |
-          docker ps -q --filter ancestor=phynsl/repeat-after-others:latest | while read container_id; do
+          docker ps -q --filter ancestor=phynsl/rebuild:v1 | while read container_id; do
               echo "Logs for container $container_id:"
               docker logs $container_id
           done
