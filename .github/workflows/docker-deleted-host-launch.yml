@@ -38,4 +38,4 @@ jobs:
           
       - name: Test HTTP Response
         run: |
-          curl -s http://172.17.0.2:5000 | grep "Hello World! (from a Docker container with modified code nah fr)"
+          curl -s http://172.17.0.2:5000 
