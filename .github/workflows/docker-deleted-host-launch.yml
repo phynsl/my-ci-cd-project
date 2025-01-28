@@ -39,6 +39,10 @@ jobs:
       - name: ping 
         run: |
          sudo ping -c 5 172.17.0.2
+
+      - name: ip a
+        run: |
+         ip a
       
       - name: Test HTTP Response
         run: |
