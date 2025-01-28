@@ -38,7 +38,7 @@ jobs:
 
       - name: ping 
         run: |
-         sudo ping -c 5 172.17.0.2
+         sudo ping -c 5 172.17.0.1
 
       - name: ip a
         run: |
@@ -46,4 +46,4 @@ jobs:
       
       - name: Test HTTP Response
         run: |
-          sudo curl -s http://172.17.0.2:5000 
+          sudo curl -s http://172.17.0.1:5000 
