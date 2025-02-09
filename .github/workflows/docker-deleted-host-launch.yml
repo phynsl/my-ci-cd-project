@@ -28,6 +28,9 @@ jobs:
 
       - name: Check Docker Container Logs
         run: sudo docker ps -a
+
+      - name: Check if container live
+        run: sudo docker ps 
           
       - name: fetch
         run: |
